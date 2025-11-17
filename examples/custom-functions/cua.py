@@ -27,6 +27,7 @@ from pydantic import BaseModel, Field
 from browser_use import Agent, ChatOpenAI, Tools
 from browser_use.agent.views import ActionResult
 from browser_use.browser import BrowserSession
+from browser_use.llm.openai.utils import normalize_openai_base_url
 
 
 class OpenAICUAAction(BaseModel):
@@ -219,7 +220,10 @@ async def openai_cua_fallback(params: OpenAICUAAction, browser_session: BrowserS
 		screenshot_b64 = base64.b64encode(buffer.getvalue()).decode('utf-8')
 		print(f'📸 Rescaled screenshot to viewport size: {page_info.viewport_width}x{page_info.viewport_height}')
 
-		client = AsyncOpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+		client = AsyncOpenAI(
+			api_key=os.getenv('OPENAI_API_KEY'),
+			base_url=normalize_openai_base_url(os.getenv('OPENAI_API_URL')),
+		)
 		print('🔄 Sending request to OpenAI CUA...')
 
 		prompt = f"""

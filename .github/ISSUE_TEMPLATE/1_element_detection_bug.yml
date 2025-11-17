@@ -42,7 +42,7 @@ body:
         - gpt-4o-mini
         - gpt-4
         - gpt-4.1
-        - gpt-4.1-mini
+        - gemini-2.5-flash-lite-preview-09-2025-thinking
         - gpt-4.1-nano
         - o4-mini
         - o3

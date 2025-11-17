@@ -5,7 +5,7 @@ from browser_use.llm import ChatAzureOpenAI
 
 # Initialize the Azure OpenAI client
 llm = ChatAzureOpenAI(
-	model='gpt-4.1-mini',
+	model='gemini-2.5-flash-lite-preview-09-2025-thinking',
 )
 
 

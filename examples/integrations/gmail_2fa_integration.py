@@ -251,7 +251,7 @@ async def main():
 	print()
 
 	# Initialize LLM
-	llm = ChatOpenAI(model='gpt-4.1-mini')
+	llm = ChatOpenAI(model='gemini-2.5-flash-lite-preview-09-2025-thinking')
 
 	# Step 4: Test Gmail functionality
 	print('🔍 Step 4: Testing Gmail email retrieval...')

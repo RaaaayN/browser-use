@@ -40,7 +40,7 @@ def save_models(params: Models):
 async def main():
 	task = 'Look up models with a license of cc-by-sa-4.0 and sort by most likes on Hugging face, save top 5 to file.'
 
-	model = ChatOpenAI(model='gpt-4.1-mini')
+	model = ChatOpenAI(model='gemini-2.5-flash-lite-preview-09-2025-thinking')
 	agent = Agent(task=task, llm=model, tools=tools)
 
 	await agent.run()

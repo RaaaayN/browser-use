@@ -1,3 +1,4 @@
+import os
 from collections.abc import Iterable, Mapping
 from dataclasses import dataclass, field
 from typing import Any, Literal, TypeVar, overload
@@ -15,6 +16,7 @@ from browser_use.llm.base import BaseChatModel
 from browser_use.llm.exceptions import ModelProviderError, ModelRateLimitError
 from browser_use.llm.messages import BaseMessage
 from browser_use.llm.openai.serializer import OpenAIMessageSerializer
+from browser_use.llm.openai.utils import normalize_openai_base_url
 from browser_use.llm.schema import SchemaOptimizer
 from browser_use.llm.views import ChatInvokeCompletion, ChatInvokeUsage
 
@@ -81,14 +83,27 @@ class ChatOpenAI(BaseChatModel):
 	def provider(self) -> str:
 		return 'openai'
 
+	def _is_gemini_model(self) -> bool:
+		"""Check if the model is a Gemini model (which doesn't support frequency_penalty)."""
+		model_str = str(self.model).lower()
+		return 'gemini' in model_str
+
 	def _get_client_params(self) -> dict[str, Any]:
 		"""Prepare client parameters dictionary."""
+		# Get base_url from parameter, environment variable, or None
+		# If self.base_url is explicitly set (even if None), use it; otherwise check env var
+		if self.base_url is not None:
+			base_url = normalize_openai_base_url(self.base_url)
+		else:
+			env_url = os.getenv('OPENAI_API_URL')
+			base_url = normalize_openai_base_url(env_url) if env_url else None
+
 		# Define base client params
 		base_params = {
 			'api_key': self.api_key,
 			'organization': self.organization,
 			'project': self.project,
-			'base_url': self.base_url,
+			'base_url': base_url,
 			'websocket_base_url': self.websocket_base_url,
 			'timeout': self.timeout,
 			'max_retries': self.max_retries,
@@ -173,7 +188,8 @@ class ChatOpenAI(BaseChatModel):
 			if self.temperature is not None:
 				model_params['temperature'] = self.temperature
 
-			if self.frequency_penalty is not None:
+			# Gemini models don't support frequency_penalty
+			if self.frequency_penalty is not None and not self._is_gemini_model():
 				model_params['frequency_penalty'] = self.frequency_penalty
 
 			if self.max_completion_tokens is not None:

@@ -92,7 +92,7 @@ names = [
 async def main():
 	task = 'use search_web with "find email address of the following ETH professor:" for each of the following persons in a list of actions. Finally return the list with name and email if provided - do always 5 at once'
 	task += '\n' + '\n'.join(names)
-	model = ChatOpenAI(model='gpt-4.1-mini')
+	model = ChatOpenAI(model='gemini-2.5-flash-lite-preview-09-2025-thinking')
 	browser_profile = BrowserProfile()
 	agent = Agent(task=task, llm=model, tools=tools, browser_profile=browser_profile)
 

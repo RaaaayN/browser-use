@@ -376,7 +376,7 @@ components:
       enum:
         - value: browser-use-llm
         - value: gpt-4.1
-        - value: gpt-4.1-mini
+        - value: gemini-2.5-flash-lite-preview-09-2025-thinking
         - value: o4-mini
         - value: o3
         - value: gemini-2.5-flash

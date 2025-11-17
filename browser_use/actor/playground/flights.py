@@ -2,7 +2,7 @@ import asyncio
 
 from browser_use import Agent, Browser, ChatOpenAI
 
-llm = ChatOpenAI('gpt-4.1-mini')
+llm = ChatOpenAI('gemini-2.5-flash-lite-preview-09-2025-thinking')
 
 
 async def main():

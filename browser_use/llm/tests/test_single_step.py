@@ -132,9 +132,9 @@ def create_mock_state_message(temp_dir: str):
 	[
 		(ChatGroq, 'meta-llama/llama-4-maverick-17b-128e-instruct'),
 		(ChatGoogle, 'gemini-2.0-flash-exp'),
-		(ChatOpenAI, 'gpt-4.1-mini'),
+		(ChatOpenAI, 'gemini-2.5-flash-lite-preview-09-2025-thinking'),
 		(ChatAnthropic, 'claude-3-5-sonnet-latest'),
-		(ChatAzureOpenAI, 'gpt-4.1-mini'),
+		(ChatAzureOpenAI, 'gemini-2.5-flash-lite-preview-09-2025-thinking'),
 		pytest.param(
 			ChatOCIRaw,
 			{

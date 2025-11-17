@@ -13,7 +13,7 @@ from browser_use import Agent, ChatOpenAI
 load_dotenv()
 
 # All the models are type safe from OpenAI in case you need a list of supported models
-llm = ChatOpenAI(model='gpt-4.1-mini')
+llm = ChatOpenAI(model='gemini-2.5-flash-lite-preview-09-2025-thinking')
 agent = Agent(
 	task='Go to amazon.com, click on the first link, and give me the title of the page',
 	llm=llm,

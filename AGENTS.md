@@ -143,7 +143,7 @@ See [Supported Models](/supported-models) for more.
   load_dotenv()
 
   async def main():
-      llm = ChatOpenAI(model="gpt-4.1-mini")
+      llm = ChatOpenAI(model="gemini-2.5-flash-lite-preview-09-2025-thinking")
       task = "Find the number 1 post on Show HN"
       agent = Agent(task=task, llm=llm)
       await agent.run()
@@ -662,7 +662,7 @@ browser = Browser(
 agent = Agent(
     task='Visit https://duckduckgo.com and search for "browser-use founders"',
     browser=browser,
-    llm=ChatOpenAI(model='gpt-4.1-mini'),
+    llm=ChatOpenAI(model='gemini-2.5-flash-lite-preview-09-2025-thinking'),
 )
 async def main():
 	await agent.run()

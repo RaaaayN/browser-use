@@ -32,7 +32,7 @@ class Posts(BaseModel):
 
 async def main():
 	task = 'Go to hackernews show hn and give me the first  5 posts'
-	model = ChatOpenAI(model='gpt-4.1-mini')
+	model = ChatOpenAI(model='gemini-2.5-flash-lite-preview-09-2025-thinking')
 	agent = Agent(task=task, llm=model, output_model_schema=Posts)
 
 	history = await agent.run()

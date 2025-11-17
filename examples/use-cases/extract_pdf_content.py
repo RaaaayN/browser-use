@@ -28,7 +28,7 @@ async def main():
 
         URL: https://docs.house.gov/meetings/GO/GO00/20220929/115171/HHRG-117-GO00-20220929-SD010.pdf
         """,
-		llm=ChatOpenAI(model='gpt-4.1-mini'),
+		llm=ChatOpenAI(model='gemini-2.5-flash-lite-preview-09-2025-thinking'),
 	)
 	result = await agent.run()
 	logger.info(result)

@@ -8,7 +8,7 @@ llm = ChatGroq(
 	model='meta-llama/llama-4-maverick-17b-128e-instruct',
 	temperature=0.5,
 )
-# llm = ChatOpenAI(model='gpt-4.1-mini')
+# llm = ChatOpenAI(model='gemini-2.5-flash-lite-preview-09-2025-thinking')
 
 
 async def main():

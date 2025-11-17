@@ -11,7 +11,7 @@ load_dotenv()
 from browser_use import Agent, ChatOpenAI
 from browser_use.browser import BrowserProfile, BrowserSession
 
-llm = ChatOpenAI(model='gpt-4.1-mini')
+llm = ChatOpenAI(model='gemini-2.5-flash-lite-preview-09-2025-thinking')
 task = (
 	"go to google.com and search for openai.com and click on the first link then extract content and scroll down - what's there?"
 )

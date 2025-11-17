@@ -29,7 +29,7 @@ async def main():
 	# Create agent with MCP-enabled tools
 	agent = Agent(
 		task='List all files on the Desktop and read the content of any .txt files you find',
-		llm=ChatOpenAI(model='gpt-4.1-mini'),
+		llm=ChatOpenAI(model='gemini-2.5-flash-lite-preview-09-2025-thinking'),
 		tools=tools,
 	)
 

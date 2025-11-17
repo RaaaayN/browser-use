@@ -54,7 +54,7 @@ async def main():
 	# Create agent with extended system prompt for using multiple MCP servers
 	agent = Agent(
 		task='Sign up for a new Anthropic account using the email example@gmail.com, save the registration details to a file',
-		llm=ChatOpenAI(model='gpt-4.1-mini'),
+		llm=ChatOpenAI(model='gemini-2.5-flash-lite-preview-09-2025-thinking'),
 		tools=tools,
 		extend_system_message="""
 You have access to both Gmail and Filesystem tools through MCP servers. When signing up for accounts:

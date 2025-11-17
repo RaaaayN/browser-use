@@ -105,7 +105,7 @@ def get_llm_by_name(model_name: str):
 
 	# Convert underscores back to dots/dashes for actual model names
 	if 'gpt_4_1_mini' in model_part:
-		model = model_part.replace('gpt_4_1_mini', 'gpt-4.1-mini')
+		model = model_part.replace('gpt_4_1_mini', 'gemini-2.5-flash-lite-preview-09-2025-thinking')
 	elif 'gpt_4o_mini' in model_part:
 		model = model_part.replace('gpt_4o_mini', 'gpt-4o-mini')
 	elif 'gpt_4o' in model_part:

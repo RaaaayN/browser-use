@@ -21,7 +21,7 @@ extend_system_message = (
 
 async def main():
 	task = 'do google search to find images of Elon Musk'
-	model = ChatOpenAI(model='gpt-4.1-mini')
+	model = ChatOpenAI(model='gemini-2.5-flash-lite-preview-09-2025-thinking')
 	agent = Agent(task=task, llm=model, extend_system_message=extend_system_message)
 
 	print(

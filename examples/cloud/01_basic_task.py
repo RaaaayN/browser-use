@@ -66,7 +66,7 @@ def create_task(instructions: str) -> str:
 
 	payload = {
 		'task': instructions,
-		'llm_model': 'gpt-4.1-mini',  # Cost-effective model
+		'llm_model': 'gemini-2.5-flash-lite-preview-09-2025-thinking',  # Cost-effective model
 		'max_agent_steps': 10,  # Prevent runaway costs
 		'enable_public_share': True,  # Enable shareable execution URLs
 	}

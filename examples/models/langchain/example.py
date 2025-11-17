@@ -22,7 +22,7 @@ async def main():
 
 	# Create a LangChain model (OpenAI)
 	langchain_model = ChatOpenAI(
-		model='gpt-4.1-mini',
+		model='gemini-2.5-flash-lite-preview-09-2025-thinking',
 		temperature=0.1,
 	)
 

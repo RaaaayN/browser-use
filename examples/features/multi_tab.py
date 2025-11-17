@@ -17,7 +17,7 @@ load_dotenv()
 from browser_use import Agent, ChatOpenAI
 
 # video: https://preview.screen.studio/share/clenCmS6
-llm = ChatOpenAI(model='gpt-4.1-mini')
+llm = ChatOpenAI(model='gemini-2.5-flash-lite-preview-09-2025-thinking')
 agent = Agent(
 	task='open 3 tabs with elon musk, sam altman, and steve jobs, then go back to the first and stop',
 	llm=llm,

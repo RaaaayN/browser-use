@@ -26,7 +26,7 @@ async def main():
 	# Example task to demonstrate history saving and rerunning
 	history_file = Path('agent_history.json')
 	task = 'Go to https://browser-use.github.io/stress-tests/challenges/ember-form.html and fill the form with example data.'
-	llm = ChatOpenAI(model='gpt-4.1-mini')
+	llm = ChatOpenAI(model='gemini-2.5-flash-lite-preview-09-2025-thinking')
 
 	agent = Agent(task=task, llm=llm, max_actions_per_step=1)
 	await agent.run(max_steps=5)

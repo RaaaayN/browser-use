@@ -176,7 +176,7 @@ async def test_focus_vs_all_elements():
 				# copy the user message to the clipboard
 				# pyperclip.copy(text_to_save)
 
-				encoding = tiktoken.encoding_for_model('gpt-4.1-mini')
+				encoding = tiktoken.encoding_for_model('gemini-2.5-flash-lite-preview-09-2025-thinking')
 				token_count = len(encoding.encode(text_to_save))
 				print(f'Token count: {token_count}')
 

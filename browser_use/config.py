@@ -199,6 +199,7 @@ class FlatEnvConfig(BaseSettings):
 
 	# LLM API keys
 	OPENAI_API_KEY: str = Field(default='')
+	OPENAI_API_URL: str = Field(default='')
 	ANTHROPIC_API_KEY: str = Field(default='')
 	GOOGLE_API_KEY: str = Field(default='')
 	DEEPSEEK_API_KEY: str = Field(default='')
@@ -287,7 +288,7 @@ def create_default_config() -> DBStyleConfigJSON:
 	new_config.browser_profile[profile_id] = BrowserProfileEntry(id=profile_id, default=True, headless=False, user_data_dir=None)
 
 	# Create default LLM entry
-	new_config.llm[llm_id] = LLMEntry(id=llm_id, default=True, model='gpt-4.1-mini', api_key='your-openai-api-key-here')
+	new_config.llm[llm_id] = LLMEntry(id=llm_id, default=True, model='gemini-2.5-flash-lite-preview-09-2025-thinking', api_key='your-openai-api-key-here')
 
 	# Create default agent entry
 	new_config.agent[agent_id] = AgentEntry(id=agent_id, default=True)
