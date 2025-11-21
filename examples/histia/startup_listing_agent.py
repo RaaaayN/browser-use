@@ -24,7 +24,6 @@ from pydantic import AnyHttpUrl, BaseModel, Field, ValidationError, field_serial
 load_dotenv()
 
 # Configure timeouts BEFORE importing browser_use to ensure they're applied
-# Use longer timeouts for heavy pages like Airtable with lots of content
 os.environ.setdefault('TIMEOUT_ScreenshotEvent', '30')
 os.environ.setdefault('TIMEOUT_BrowserStateRequestEvent', '60')
 
@@ -458,8 +457,7 @@ def _sanitize_report(report: StartupListingReport) -> StartupListingReport:
 			# Check if it's already a full URL
 			if not listing_url_str.startswith('http://') and not listing_url_str.startswith('https://'):
 				startup.listing_url = _normalize_listing_url(listing_url_str, base_url)
-			# Also check if it's an Airtable URL that shouldn't be there
-			elif 'airtable.com' in listing_url_str and listing_url_str != base_url:
+			elif listing_url_str != base_url:
 				# This is likely a malformed URL, try to extract the real URL
 				# If the URL contains www. or http, try to extract it
 				url_match = re.search(r'(www\.[^\s/]+|https?://[^\s/]+)', listing_url_str)
